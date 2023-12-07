@@ -10,6 +10,7 @@ public class SE_Server : NetworkBehaviour
     public GameObject playerPrefab;
 
 
+
     public GameObject spawnedObjects;
 
     // Start is called before the first frame update
@@ -17,7 +18,7 @@ public class SE_Server : NetworkBehaviour
     {
         if (IsServer)
         {
-            Resources.PlayerJoined += (c) => { 
+            SE_Resources.PlayerJoined += (c) => { 
                 SpawnPlayer(playerPrefab, c);
             };
         }
@@ -32,6 +33,7 @@ public class SE_Server : NetworkBehaviour
         g.transform.SetParent(spawnedObjects.transform);
         SetSpawnedObjectParent(g);
     }
+
 
     [ObserversRpc]
     private void SetSpawnedObjectParent(GameObject spawnedObject)

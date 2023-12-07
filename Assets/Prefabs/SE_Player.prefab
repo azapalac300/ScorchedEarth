@@ -202,4 +202,4 @@ MonoBehaviour:
   _componentIndexCache: 1
   _addedNetworkObject: {fileID: 7389030983103477310}
   _networkObjectCache: {fileID: 7389030983103477310}
-  id: 
+  credentials: {fileID: 11400000, guid: 5cb4d518e89cd934fa0b65033cd9e5d4, type: 2}

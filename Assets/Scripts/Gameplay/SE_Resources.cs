@@ -24,7 +24,7 @@ public enum DamageType
     Ballistic, Explosive, Fire, Ice, Poison, Radiation, Lightning
 }
 
-public static class Resources
+public static class SE_Resources
 {
 
     //Play channels
@@ -55,6 +55,12 @@ public interface Destructible
 [Serializable]
 public class SaveData
 {
-    public string credentialsData;
-    public string userIdData;
+    [SerializeField]
+    public List<string> usernames;
+
+    [SerializeField]
+    public List<string> passwords;
+
+    [SerializeField]
+    public List<string> ids;
 }

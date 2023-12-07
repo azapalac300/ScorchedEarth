@@ -8,7 +8,7 @@ using FishNet.Object.Synchronizing;
 
 public class PersistentObject : NetworkBehaviour, Selectable
 {
-    [SyncVar] 
+    [SyncVar]
     public string ownerID;
 
     public bool CheckOwnerID(string id, NetworkConnection conn = null)

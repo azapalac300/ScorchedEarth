@@ -13,7 +13,7 @@ public class PersistentObjectSpawner : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Resources.PersistentSpawnRequest += (data) =>
+        SE_Resources.PersistentSpawnRequest += (data) =>
         {
             SpawnPersistentObject(data);
         };
@@ -31,7 +31,6 @@ public class PersistentObjectSpawner : NetworkBehaviour
 
 
         ServerManager.Spawn(obj, null, overworld);
-
 
         obj.transform.SetParent(spawnedObjects.transform);
 

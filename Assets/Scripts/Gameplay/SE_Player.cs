@@ -1,16 +1,30 @@
 using FishNet.Object;
 using UnityEngine;
+using FishNet.Object.Synchronizing;
+using UnityEditor;
 
 public class SE_Player : NetworkBehaviour
 {
-    public string id;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    public string id { get {
+            if (credentials == null)
+            {
+                if (IsOwner)
+                {
+                    credentials = Resources.Load<UserCredentials>("UserCredentials");
+                    return credentials.id;
+                }
+                else
+                {
+                    return "";
+                }
+            }
+            else
+            {
+                return credentials.id;
+            }
+            
+        } }
+    private UserCredentials credentials;
 
     public void TestMovement()
     {
@@ -46,7 +60,7 @@ public class SE_Player : NetworkBehaviour
         SpawnData data = new SpawnData();
         data.OwnerID = id;
         data.Position = transform.position;
-        Resources.PersistentSpawnRequest?.Invoke(data);
+        SE_Resources.PersistentSpawnRequest?.Invoke(data);
     }
 
     public void TestInteraction()
